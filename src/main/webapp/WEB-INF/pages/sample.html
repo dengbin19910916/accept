@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/resources/asset/common/styles/kendo.common.min.css"
+          th:href="@{/resources/asset/common/styles/kendo.common-material.min.css}"/>
+    <link rel="stylesheet" href="/resources/asset/common/styles/kendo.default.min.css"
+          th:href="@{/resources/asset/common/styles/kendo.material.min.css}"/>
+    <link rel="stylesheet" href="/resources/asset/common/styles/kendo.material.mobile.min.css"
+          th:href="@{/resources/asset/common/styles/kendo.material.mobile.min.css}"/>
+
+    <script src="/resources/asset/js/jquery.min.js" th:src="@{/resources/asset/common/js/jquery.min.js}"></script>
+    <script src="/resources/asset/js/kendo.all.min.js" th:src="@{/resources/asset/common/js/kendo.all.min.js}"></script>
+    <script th:src="@{/resources/asset/ts/node_modules/moment/moment.js}"></script>
+    <script th:src="@{/resources/asset/ts/src/certificate.js}"></script>
+</head>
+<body>
+
+<form id="employeeForm" data-role="validator" novalidate="novalidate">
+    <ul id="fieldlist">
+        <li>
+            <label for="customerName">姓名:</label>
+            <input type="text" class="k-textbox" name="customerName" id="customerName"
+                   style="width: 350px;" required="required" />
+        </li>
+        <li>
+            <label for="cardType">证件类型:</label>
+            <input name="cardType" id="cardType"
+                   style="width: 350px;" required="required" />
+        </li>
+        <li>
+            <label for="cardNumber">证件号码:</label>
+            <input type="text" class="k-textbox" name="cardNumber" id="cardNumber"
+                   style="width: 350px;" required="required" />
+        </li>
+        <li>
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" data-role='maskedtextbox' data-mask="(999) 000-0000" id="phoneNumber" name="phoneNumber" data-validmask-msg="Phone number is incomplete" required="required" />
+            <span data-for='PhoneNumber' class='k-invalid-msg'></span>
+        </li>
+        <li class="actions">
+            <button type="button" data-role="button" data-sprite-css-class="k-icon k-i-tick" data-click='save'>Save</button>
+        </li>
+    </ul>
+</form>
+
+<script type="text/javascript">
+    $(function () {
+        var id = new accept.certificate.IdCard("430821199111230033");
+        alert(id.isValid());
+        var gender = accept.certificate.Gender.nameOf("人妖");
+        alert(gender);
+
+        var data = [
+            { text: "居民身份证", value: "1" },
+            { text: "军官证", value: "2" },
+            { text: "港澳同胞证", value: "3" }
+        ];
+
+        $("#cardType").kendoDropDownList({
+            optionLabel: "--请选择--",
+            dataTextField: "text",
+            dataValueField: "value",
+            dataSource: data,
+            index: 0
+        });
+
+        var container = $("#employeeForm");
+        kendo.init(container);
+        container.kendoValidator({
+            rules: {
+                validmask: function (input) {
+                    console.log(input);
+                    if (input.is("[data-validmask-msg]") && input.val() != "") {
+                        var maskedtextbox = input.data("kendoMaskedTextBox");
+                        return maskedtextbox.value().indexOf(maskedtextbox.options.promptChar) === -1;
+                    }
+
+                    return true;
+                }
+            }
+        });
+    });
+
+    function save(e) {
+        var validator = $("#employeeForm").data("kendoValidator");
+        if (validator.validate()) {
+            alert("Employee Saved");
+        }
+    }
+</script>
+
+<style>
+    #fieldlist {
+        margin: 0 0 -2em;
+        padding: 0;
+    }
+
+    #fieldlist li {
+        list-style: none;
+        padding-bottom: 2em;
+    }
+
+    #fieldlist label {
+        display: block;
+        padding-bottom: 1em;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 12px;
+        color: #444;
+    }
+
+    #fieldlist input {
+        width: 100%;
+    }
+
+    span.k-tooltip {
+        /*margin-top: 5px;*/
+        /*line-height: 1.7em;*/
+        width: 350px;
+        /*box-sizing: border-box;*/
+        /*text-align: left;*/
+    }
+</style>
+</body>
+</html>

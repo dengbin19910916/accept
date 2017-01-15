@@ -1,0 +1,31 @@
+
+/*  jumbotron 样式  */
+.pre_apply .main .jumbotron{
+	text-align:center;
+	background-color:#f7f9fb;
+	margin:50px 15px;
+	padding:20px 30px;
+}
+.pre_apply .main .jumbotron button.print{
+	margin-left:20px;
+    background-color: #E0E0E0;
+    width: 120px;
+    border-radius: 20px;
+    color: #B6B8BA;
+    font-size: 14px;
+    border:0;
+}
+.pre_apply .main .jumbotron button.print:hover{
+	background-color: #fdb930;
+    color: #fff;
+}
+.pre_apply .main .jumbotron button.print:focus{
+	box-shadow: none;
+	outline:none;
+}
+
+/* 模态框样式 */
+#printcontract p{
+	font-size:18px;
+	line-height:1.4;
+}

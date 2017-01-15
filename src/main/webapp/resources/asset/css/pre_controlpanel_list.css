@@ -1,0 +1,29 @@
+.cplist .table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #f7f9fb;
+}
+.cplist .table>tbody>tr>td,.cplist .table>tbody>tr>th{
+    border-top: 1px solid #d6d3d4;
+}
+.cplist .table-hover>tbody>tr:hover {
+    background-color: #ba8748;
+}
+.cplist .table-hover>tbody>tr:hover td{
+	color:#fff;
+}
+.cplist .table-hover>tbody>tr.title,.cplist .table-hover>tbody>tr.title:hover{
+	background-color:#fff;
+}
+.cplist .table tr.title th{
+	border-top: 0;
+}
+.cplist .table tr.title th .form-group{
+	margin-top:50px;
+	margin-bottom:30px;
+}
+.cplist .panel-heading span{
+	color:#fff;
+}
+.cplist .panel-body button.submit{
+	margin-top:25px;
+	margin-bottom:15px;
+}

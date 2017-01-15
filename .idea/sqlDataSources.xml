@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="d5c85275-2b46-45d5-b064-96dc3714e2f3" />
+          <option name="name" value="DDL data source" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/src/main/resources/data/h2/data.sql" />
+              <option value="file://$PROJECT_DIR$/src/main/resources/data/h2/schema.sql" />
+              <option value="file://$PROJECT_DIR$/src/main/resources/data/h2/param.data.sql" />
+            </array>
+          </option>
+        </State>
+      </list>
+    </option>
+  </component>
+</project>

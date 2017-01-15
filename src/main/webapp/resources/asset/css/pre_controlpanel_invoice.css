@@ -1,0 +1,8 @@
+.cpinvoice{
+	margin-bottom:80px;
+}
+.cpinvoice .reback{
+	float:left;
+	font-size:20px;
+	cursor:pointer;
+}

@@ -1,0 +1,53 @@
+
+.pre_apply .main .uploadfile .dl-horizontal{
+	border-top:1px solid #f7f9fb;  /*  f7f9fb */
+	border-bottom: 1px solid #f7f9fb;
+	margin-bottom: 0;
+}
+.pre_apply .main .uploadfile .dl-horizontal dt{
+	margin-top:50px;
+}
+.pre_apply .main .uploadfile .dl-horizontal dt h3{
+	color:#425968;
+}
+.pre_apply .main .uploadfile .dl-horizontal dd ul{
+	margin-bottom:0;
+}
+.pre_apply .main .uploadfile .dl-horizontal dd ul li{
+	position:relative;
+	float:left;
+
+	margin:20px 10px;
+	padding:0;
+	/*overflow:hidden;*/
+}
+
+.pre_apply .main .uploadfile div.help-block{
+	margin-top:15px;
+	margin-bottom:50px;
+}
+.pre_apply .main .uploadfile div.help-block>a{
+	font-size:12px;
+	color:#B6B8BA;
+	text-decoration: underline;
+}
+
+@media(min-width:768px){
+	.pre_apply .main .uploadfile h3{
+		font-size:20px;
+		margin-top:0px;
+	}
+
+}
+@media(min-width:992px){
+	.pre_apply .main .uploadfile h3{
+		font-size:22px;
+		margin-top:10px;
+	}
+}
+@media(min-width:1200px){
+	.pre_apply .main .uploadfile h3{
+		font-size:24px;
+		margin-top:20px;
+	}
+}

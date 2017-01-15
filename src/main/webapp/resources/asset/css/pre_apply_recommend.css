@@ -1,0 +1,118 @@
+
+
+/*  jumbotron 样式  */
+.pre_apply .main .jumbotron{
+	background-color:#f7f9fb;
+	margin-top:50px;
+	margin-bottom:50px;
+	position: relative;
+}
+.pre_apply .main .jumbotron h2{
+	margin-bottom:30px;
+}
+.pre_apply .main .jumbotron p.morechoice{
+	font-size:14px;
+	margin-top:30px;
+	margin-bottom:30px;
+}
+.pre_apply .main .jumbotron .product{
+	width:50%;
+	height:42px;
+	background-color: #fdb930;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 14px;
+    border: 0;
+    line-height: 28px;
+    margin-bottom:10px;
+}
+.pre_apply .main .jumbotron .line{
+	position: relative;
+	border-bottom:1px solid #d6d3d4;
+	height:45px;
+	margin-bottom:45px;
+}
+.pre_apply .main .jumbotron .line span{
+	position: absolute;
+	left:50%;
+	margin-left:-22px;
+	bottom:-10px;
+	font-size:14px;
+	padding-left:15px;
+	padding-right:15px;
+	background-color:#f7f9fb;
+}
+.pre_apply .main .jumbotron .choice{
+	margin-bottom:15px;
+	text-decoration: underline;
+}
+.pre_apply .main .jumbotron .form-control-feedback{
+	right:17px;
+}
+.pre_apply .main .jumbotron .comment{
+	resize:none;
+	margin-top:15px;
+	margin-bottom:15px;
+	height:120px;
+}
+.pre_apply .main .jumbotron .submit{
+	width:100%;
+	height:42px;
+	background-color: #f0f0f0;
+    color: #b6b8ba;
+    border-radius: 20px;
+    font-size: 14px;
+    border: 0;
+    line-height: 28px;
+}
+.pre_apply .main .jumbotron .submit.active{
+	background-color: #fdb930;
+    color: #fff;
+    box-shadow: none;
+}
+
+/* jumbotron 样式 */
+.pre_apply .main .jumbotron .papers{
+	text-align:left;
+	margin-left:30%;
+	margin-bottom:0;
+}
+
+.pre_apply .main .jumbotron a{
+	/*text-decoration: underline;*/
+
+}
+.pre_apply .main .jumbotron a:focus{
+	box-shadow: none;
+	outline:none;
+}
+
+
+.pre_apply .main .jumbotron img.media-object{
+	height:120px;
+}
+.pre_apply .main .jumbotron .media-heading{
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+.pre_apply .main .jumbotron img.subsuc{
+	width:20%;
+}
+
+.pre_apply .main .jumbotron a.closejumbotron{
+	display:inline-block;
+	width:20px;
+	height: 20px;
+	position:absolute;
+	top:5px;
+	right:5px;
+}
+
+
+.pre_apply .main .panel>.panel-heading{
+	padding:20px 15px;
+}
+
+
+

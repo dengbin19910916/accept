@@ -1,0 +1,255 @@
+.pre_login_body{
+	background:url(../img/login_bg.png) no-repeat center center fixed;
+	background-size: cover;
+	background-color: #405a67;
+}
+.pre_login_body .container-fluid{
+	height:100%;
+	padding-left:0;
+	padding-right:0;
+}
+.carousel,.carousel .carousel-inner,.carousel .item{height:100%;} 
+
+.pre_login_body .login{
+	position:absolute;
+	top:50%;
+	margin-top:-200px;
+}
+.pre_login_body .login h2{
+	font-size:30px;
+	color:#fff;
+	margin-top:40px;
+	margin-bottom:30px;
+}
+@media(min-width:768px){
+	.pre_login_body .login{
+		margin-top:-250px;
+	}
+	.pre_login_body .login h2{
+		margin-top:80px;
+	}
+}
+.pre_login_body .login .label_user{
+	font-size:12px;
+	color: #A7A9AC;
+	padding-left:10px;
+}
+.pre_login_body .login .input{
+	background-color:#F0F0F0!important;
+	color:#425968!important;
+	-webkit-box-shadow: 0 0 0px 1000px #f0f0f0 inset;
+	box-shadow: 0 0 0px 1000px #f0f0f0 inset;
+	border:0;
+	padding:10px;
+	height:40px;
+}
+.pre_login_body .login .secret{
+	margin-top:30px;
+	margin-bottom:50px;
+}
+.pre_login_body .login .submit{
+	background-color: #FDB930;
+	color:#fff;
+	font-size:14px;
+	border-radius: 20px;
+	height:40px;
+	border:0;
+}
+.pre_login_body .login .help-block a{
+	font-size:12px;
+	color:#A7A9Ac;
+}
+.pre_login_body .login .send1{
+	border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+	height:40px;
+	border:0;
+	min-width:60px;
+	box-shadow: none;
+	outline:none;
+}
+.pre_login_body .login .b-phone{
+	padding-left:0;
+	padding-right:0;
+	margin-bottom:0px;
+}
+.pre_login_body .login .a-phone{
+	padding-left:0;
+	padding-right:0;
+	margin-bottom:30px;
+}
+@media(min-width:768px){
+	.pre_login_body .login .b-phone{
+		margin-bottom:30px;
+	}
+	.pre_login_body .login .a-phone{
+		padding-left:15px;
+	}
+}
+
+.pre_login_body .login .validcode{
+	margin-bottom:30px;
+}
+span.glyphicon-chevron-right{
+	right:0!important;
+	margin-right:0!important;
+	width:20px!important;
+	height: 60px!important;
+	/*background-color: #ccc;*/
+}
+span.glyphicon-chevron-left{
+	left:0!important;
+	margin-left:0!important;
+	width:20px!important;
+	height: 60px!important;
+	/*background-color: #ccc;*/
+}
+span.glyphicon-chevron-right:before{
+	content:"";
+}
+span.glyphicon-chevron-left:before{
+	content:"";
+}
+
+/* 修改密码样式 */
+.pre_login_body .login .pwd{
+	margin-bottom:30px;
+}
+.pre_login_body .login .form-group p{
+	color:#a7a9ac;
+}
+
+.eyes{
+	position: absolute;
+    top: 36px;
+    right: 10px;
+}
+
+.measure .s{
+	margin-bottom:30px;
+}
+.measure .s p.w{
+	font-size:12px;
+	line-height:20px;
+	color:#A7A9AC;
+	margin-bottom:0;
+}
+.measure .s .p20{
+	display:inline-block;
+	width:18%;
+	margin-left:1px;
+	margin-right:1px;
+	height:10px;
+	background-color: #a7a9ac;
+	/*border:1px solid #425968;*/
+}
+.measure .s .p1{
+	background:#fff1d6;
+}
+.measure .s .p2{
+	background:#fee3ac;
+}
+.measure .s .p3{
+	background-color:#fed583;
+}
+.measure .s .p4{
+	background-color:#fdc759;
+}
+.measure .s .p5{
+	background-color:#fdb930;
+}
+/*.measure .s dl{
+	height:20px;
+	margin-bottom:30px;
+	overflow:hidden;
+}
+.measure .s dl dt{
+	width:90px;
+	text-align: left;
+}
+.measure .s dl dt span.w{
+	font-size:12px;
+	line-height:20px;
+	color:#A7A9AC;
+}
+@media (min-width: 768px){
+.measure .s dl dd {
+    margin-left: 90px;
+}
+.measure .s dl dd .p20{
+	display:inline-block;
+	width:17%;
+	margin-left:1px;
+	margin-right:1px;
+	height:10px;
+	background-color: #a7a9ac;
+	border:1px solid #425968;
+}
+.measure .s dl dd .p1{
+	background:#fff1d6;
+}
+.measure .s dl dd .p2{
+	background:#fee3ac;
+}
+.measure .s dl dd .p3{
+	background-color:#fed583;
+}
+.measure .s dl dd .p4{
+	background-color:#fdc759;
+}
+.measure .s dl dd .p5{
+	background-color:#fdb930;
+}*/
+
+
+
+/*  重置密码样式  */
+.pre_login_body .label_radio,.pre_login_body .label_radio span{
+	font-size:14px;
+	color: #fff;
+	/*padding-left:10px;*/
+	margin-bottom:15px;
+}
+.pre_login_body .reset_tips{
+	color:#fff;
+	font-size:14px;
+	font-weight: bold;
+	padding-left:15px;
+	margin-bottom:20px;
+}
+
+
+
+/*  邮箱重置密码页面样式  */
+.pre_login_body .label_validemail{
+	font-size:14px;
+	color: #fff;
+	/*padding-left:10px;*/
+	/*margin-bottom:15px;*/
+}
+.pre_login_body .emailsubmit{
+	padding-left:15px;
+	padding-right:15px;
+}
+.pre_login_body .suc_emailvalid{
+	padding-left:30px;
+	padding-right:30px;
+	text-align: center;
+}
+
+/*  短信验证码重置密码页面样式  */
+.pre_login_body .label_validcode{
+	font-size:14px;
+	color: #fff;
+	/*padding-left:10px;*/
+	/*margin-bottom:15px;*/
+}
+.pre_login_body .smssubmit{
+	padding-left:15px;
+	padding-right:15px;
+}
+.pre_login_body .suc_smsvalid{
+	padding-left:30px;
+	padding-right:30px;
+	text-align: center;
+}

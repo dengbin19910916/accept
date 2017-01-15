@@ -1,0 +1,90 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="navbar-header">
+		<a href="#" class="navbar-brand">
+			<img class="img-responsive" src="img/gac_logo2.png" alt="">
+		</a>
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navtop">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	</div>
+	<div class="collapse navbar-collapse" id="navtop">
+		<ul class="nav navbar-nav navbar-right lists">
+			<li class="dropdown">
+				<a href="#" data-toggle="dropdown" class="list">
+					<img class="img-circle usericon" src="img/usericon.png" alt="">
+					<span class="navbar-link">哈迪斯</span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="pre_changepass.html">修改密码</a></li>
+					<li class="divider"></li>
+					<li class="disabled"><a href="#">常用车型</a></li>
+					<li class="disabled"><a href="#">常用金融产品</a></li>
+				</ul>
+			</li>
+			<li class="dropdown">
+				<a href="#" data-toggle="dropdown" class="list">
+					<img class="icon setting" src="img/setting.png" alt="设置">
+				</a>
+				<ul class="dropdown-menu">
+					<li class="dropdown-header">FAFC用户</li>
+					<li><a href="#" class="lang">语言设置</a></li>
+					<li class="disabled"><a href="#">[预留功能]</a></li>
+					<li class="divider"></li>
+					<li class="dropdown-header">其它用户</li>
+					<li class="disabled"><a href="#">管理功能</a></li>
+					<li><a href="#">通知</a></li>
+					<li><a href="#">业务伙伴</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#" class="list msg">
+					<span class="message">
+						<img class="icon ring" src="img/ring.png" alt="消息">
+						<span class="badge msgnum">3</span>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="pre_login.html" class="list">
+					<img class="icon door" src="img/logout.png" alt="退出登录">
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+<div class="fixed_top_nav"></div>
+
+<div class="modal fade" id="setlang" tabindex="-1">
+	<div class="modal-dialog modal-sm">
+		<!-- <div class="img_close" data-dismiss="modal"><img src="img/close3.png" alt=""></div> -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><img src="img/close1.png" alt=""></button>
+				<h4 class="modal-title">选择语言</h4>
+			</div>
+			<div class="modal-body">
+				<div class="radio radio-lang">
+					<label class="label_radio">
+						<input type="radio" name="optionlang" class="resettype" value="1">简体中文
+					</label>
+				</div>
+				<div class="radio radio-lang">
+					<label class="label_radio">
+						<input type="radio" name="optionlang" class="resettype" value="2">繁体中文
+					</label>
+				</div>
+				<div class="radio radio-lang">
+					<label class="label_radio">
+						<input type="radio" name="optionlang" class="resettype" value="3">美式英语
+					</label>
+				</div>
+			</div>
+			<div class="modal-footer center-block">
+				<button type="button" class="btn btn-theme4 save_setlang">确定</button>
+				<button type="button" class="btn btn-theme5 cancel_setlang">取消</button>
+			</div>
+		</div>
+	</div>
+</div>

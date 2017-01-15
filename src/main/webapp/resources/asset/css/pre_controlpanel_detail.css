@@ -1,0 +1,107 @@
+.cpdetail .well-heading{
+	border-bottom: 1px solid #ccc;
+}
+.cpdetail .well-heading .title{
+	margin:10px;
+	font-size:24px;
+}
+.cpdetail .well-heading p{
+	margin-top:20px;
+}
+.cpdetail .well .infolist{
+	margin-top:10px;
+}
+.cpdetail .phrases{
+	margin-top:30px;
+}
+.cpdetail .phrases *{
+	color:#fff;
+}
+.cpdetail .phrases .phrase{
+	position:relative;
+	height:310px;
+	border-radius: 8px;
+	padding:5px 35px;
+	background-color:#a7a9ac;
+}
+.cpdetail .phrases .phrase .g{border-left: 20px solid #a7a9ac; }
+.cpdetail .phrases .phrase p{
+	margin-top:15px;
+	margin-bottom:15px;
+}
+.cpdetail .phrases .phrase div{
+	/*margin-top:5px;*/
+	margin-bottom:5px;
+}
+.cpdetail .phrases .phrase button{
+	position:absolute;
+	bottom:20px;
+	border-radius: 20px;
+}
+.cpdetail .phrases .phrase .g{
+	display: block;
+    position: absolute;
+    right: -39px;
+    top: 5px;
+    width: 0;
+    height: 0;
+    border-top:150px solid transparent;
+    border-bottom:150px solid transparent;
+    border-right:20px solid transparent;
+    z-index: 10;
+}
+.cpdetail .phrases .phrase.active{background-color:#ba8748; }
+.cpdetail .phrases .phrase.active .g{border-left: 20px solid #ba8748; }
+.cpdetail .phrases .phrase.active button{
+	color: #fff;
+    background-color: #ba8748;
+    border-color: #fff;
+}
+.cpdetail .phrases .phrase.active button:hover{
+	background: #ab6735;
+}
+.cpdetail .comments{
+	margin-top:30px;
+	margin-bottom:20px;
+}
+.cpdetail .comments h3{
+	margin-left:10px;
+	padding:6px 15px;
+	background-color:#425968;
+	font-size:18px;
+	font-weight: normal;
+}
+.cpdetail .comments textarea{
+	height:120px;
+}
+.cpdetail .comments button{
+	margin:15px;
+	margin-bottom:0;
+}
+.cpdetail .reply{
+	margin-bottom:50px;
+}
+.cpdetail .reply h3{
+	margin-left:10px;
+	padding:6px 15px;
+	background-color:#425968;
+	font-size:18px;
+	font-weight: normal;
+	margin-bottom:20px;
+}
+.cpdetail .reply li.media{
+	border-top:1px solid #d6d3d4;
+	padding-top:15px;
+	margin-top:0px;
+}
+.cpdetail .reply .media-heading .title{
+	padding-bottom:5px;
+	border-bottom:1px dashed #d6d3d4;
+}
+.cpdetail .reply .media-heading small{
+	margin-left:50px;
+}
+.cpdetail .reply .media-object{
+	height:50px;
+	width:50px;
+}

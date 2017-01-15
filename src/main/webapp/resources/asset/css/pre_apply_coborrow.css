@@ -1,0 +1,51 @@
+/* 选择申请人类型复选框 */
+.appliertypes{
+	margin:20px;
+}
+
+/* 选择类型标签 */
+.pre_apply .main .types{
+	position:relative;
+}
+.pre_apply .main .types .baseline{
+	position:absolute;
+	bottom:0;
+	height:1px;
+	width: 100%;
+	z-index:-1;
+    background-color: #d6d3d4;
+}
+.pre_apply .main .types .nav{
+	padding-left:100px;
+}
+.pre_apply .main .types .nav>li>a{
+	padding:10px 40px;
+	border: 1px solid #d6d3d4;
+	border-top-width: 2px;
+	background-color: #fff;
+	color:#d6d3d4;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+.pre_apply .main .types .nav-tabs>li.active>a, 
+.pre_apply .main .types .nav-tabs>li.active>a:focus, 
+.pre_apply .main .types .nav-tabs>li.active>a:hover{
+	border-bottom-color: transparent;
+	border-top-color:#ba8748;
+	color:#ba8748;
+}
+
+/*  胶囊标签  */
+.pre_apply .main #borrow>ul.nav,.pre_apply .main #coborrow>ul.nav,.pre_apply .main #guarantee>ul.nav{
+	margin:20px;
+}
+.pre_apply .main #borrow>ul.nav>li>a,.pre_apply .main #coborrow>ul.nav>li>a,.pre_apply .main #guarantee>ul.nav>li>a{
+	border:1px solid #d6d3d4;
+}
+.pre_apply .main #borrow>ul.nav>li.active>a,.pre_apply .main #coborrow>ul.nav>li.active>a,.pre_apply .main #guarantee>ul.nav>li.active>a{
+	border:0;
+	/*background-color:#425968;*/
+}
+
+
+

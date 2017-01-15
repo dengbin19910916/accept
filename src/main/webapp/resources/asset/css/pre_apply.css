@@ -1,0 +1,419 @@
+.icon{
+	width:25px;
+	height:25px;
+	margin-left:15px;
+	margin-right:15px;
+}
+.usericon{
+	height:30px;
+	width:30px;
+	margin-left:10px;
+	margin-right:10px;
+}
+.pre_apply{
+
+}
+
+.pre_apply .fixed_top_nav{
+	height:70px;
+}
+.pre_apply .fixed_top_stage_step{
+	height:116px;
+}
+.pre_apply .fixed_top_controlpanel_search{
+	height:90px;
+}
+
+/*  导航右侧设置区域  */
+.pre_apply .navbar-fixed-top{
+	margin-bottom:0;
+}
+.pre_apply .navbar-fixed-top .navbar-header{
+	/*min-height:80px;*/
+	height:70px;
+}
+.pre_apply .navbar-fixed-top .navbar-brand{
+	width:60%;
+}
+@media(min-width:768px){
+	.pre_apply .navbar-fixed-top .navbar-brand{
+		width:auto;
+	}
+}
+.pre_apply .navbar-fixed-top .navbar-header .navbar-toggle{
+	margin-top:15px;
+}
+.pre_apply .navbar-fixed-top ul.lists{
+	margin-top:0px;
+	margin-bottom:0px;
+}
+
+.pre_apply .navbar-fixed-top ul.lists>li{
+	border-bottom:1px dotted #ccc;
+}
+@media(min-width:768px){
+	.pre_apply .navbar-fixed-top ul.lists>li{
+		border-bottom:0;
+	}
+}
+.pre_apply .navbar-fixed-top ul.lists a.list{
+	text-decoration:none;
+	display:inline-block;
+	height:70px;
+	line-height:40px;
+	width:100%;
+	padding:15px 0;
+}
+.pre_apply .navbar-fixed-top ul.lists img.door{
+	margin-right:30px;
+}
+.pre_apply .navbar-fixed-top ul.lists>li .dropdown-menu{
+	background-color: #fff;
+}
+
+.pre_apply .navbar-fixed-top ul.lists a.list.active{
+	background-color: #f0f0f0;
+}
+.pre_apply .navbar-fixed-top ul.lists a.list>span{
+	margin-right:10px;
+}
+.pre_apply .navbar-fixed-top .message{
+	position:relative;
+	display:inline-block;
+}
+.pre_apply .navbar-fixed-top .message .badge.msgnum{
+	/*display:none;*/
+	position:absolute;
+	top:0px;
+	left:50%;
+	background-color: #f88705;
+}
+
+.pre_apply .section{
+	position:relative;
+	overflow: hidden;
+}
+.pre_apply .section:before{
+	display:block;
+	content:"";
+	background-color:#425968;
+	width:60px;
+	height:20000px;
+	position:absolute;
+	top:0;
+	z-index:-1;
+}
+.pre_apply .sidebar{
+	background-color:#425968;
+	width:60px;
+	/*min-height:1024px;*/
+	
+	position: fixed;
+    z-index: 500;
+    height: 100%;
+    left:0;
+    top:70px;
+}
+
+.pre_apply .sidebar ul li{
+	/*height:60px;*/
+	padding-top:10px;
+	padding-bottom:10px;
+	border-bottom: 1px solid #181b1f;
+}
+.pre_apply .sidebar ul li.active{
+	background-color:#ba8748;
+	border-bottom:0;
+}
+.pre_apply .sidebar ul li a{
+	text-decoration: none;
+}
+.pre_apply .sidebar ul li h6{
+	margin-top:5px;
+	margin-bottom:5px;
+	color:#fff;
+	line-height: 16px;
+}
+.pre_apply .main{
+	width:auto;
+	overflow:hidden;
+}
+.pre_apply .main .stages{
+/*	position:relative;
+	height:70px;
+	background-color:#f7f9fb; */
+
+	top: 70px;
+    position: fixed;
+    height: 70px;
+    background-color: #f7f9fb;
+    width: 100%;
+    z-index: 100;
+}
+.pre_apply .main .steps{
+/*	position: relative;
+	height:46px;
+	background-color:#f7f9fb;*/
+
+	top: 140px;
+    position: fixed;
+    height: 46px;
+    background-color: #f7f9fb;
+    width: 100%;
+    z-index: 100;
+}
+.pre_apply .main .stages .baseline,.pre_apply .main .steps .baseline{
+	position:absolute;
+	bottom:0;
+	width:50%;
+	background-color:#d6d3d4;
+}
+.pre_apply .main .stages .baseline-left,.pre_apply .main .steps .baseline-left{
+	left:0;
+	background-color:#a7a9ac;
+}
+.pre_apply .main .stages .baseline-right,.pre_apply .main .steps .baseline-right{
+	right:0;
+}
+.pre_apply .main .stages .baseline{
+	height:5px;
+}
+.pre_apply .main .steps .baseline{
+	height:3px;
+}
+
+.pre_apply .main .stages .stage,.pre_apply .main .steps .step{
+	position:relative;
+	padding-left:0;
+	padding-right:0;
+}
+.pre_apply .main .stages .stage{
+	height:70px;
+}
+.pre_apply .main .stages .stage.has-passed{
+	cursor:pointer;
+}
+.pre_apply .main .steps .step{
+	height:46px;
+}
+.pre_apply .main .steps .step.has-passed{
+	cursor:pointer;
+}
+.pre_apply .main .stages .stage h4{
+	font-size:14px;
+	margin-top:35px;
+	margin-bottom:0;
+	color:#d6d3d4;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.pre_apply .main .stages .stage.has-passed h4{
+	color:#a7a9ac;
+}
+.pre_apply .main .stages .stage.active h4{
+	color:#ba8748;
+}
+@media(min-width:768px){
+	.pre_apply .main .stages .stage h4{
+		font-size:18px;
+	}
+}
+
+.pre_apply .main .stages .stage .t,.pre_apply .main .stages .stage .b{
+	display:none;
+}
+.pre_apply .main .stages .stage .d{
+	display:block;
+	position:absolute;
+	bottom:0;
+	width:100%;
+	height:5px;
+	background-color: #d6d3d4;
+	z-index:5;
+}
+.pre_apply .main .stages .stage.has-passed .d{
+	background-color: #a7a9ac;
+}
+.pre_apply .main .stages .stage.active .d{
+	background-color: #ba8748;
+}
+.pre_apply .main .stages .stage.active .t{
+	display:block;
+	position:absolute;
+	bottom:0;
+	left:50%;
+	margin-left:-12px;
+	width:0;
+	height:0;
+	border:12px solid transparent;
+	border-bottom: 12px solid #ba8748;
+	z-index:10;
+}
+.pre_apply .main .stages .stage.active .b{
+	display:block;
+	position:absolute;
+	bottom:0;
+	left:50%;
+	margin-left:-5px;
+	width:0;
+	height:0;
+	border:5px solid transparent;
+	border-bottom: 5px solid #f7f9fb;
+	z-index:15;
+}
+.pre_apply .main .steps .step h6{
+	margin:20px 0 0 0;
+	color:#d6d3d4;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.pre_apply .main .steps .step.has-passed h6{
+	color:#a7a9ac;
+}
+.pre_apply .main .steps .step.active h6{
+	color:#ba8748;
+}
+@media(min-width:768px){
+	.pre_apply .main .steps .step h6{
+		margin:20px 15px 0 15px;
+	}
+}
+.pre_apply .main .step .stage .ball{
+	display:none;
+}
+.pre_apply .main .steps .step .d{
+	display:block;
+	position:absolute;
+	bottom:0;
+	width:100%;
+	height:3px;
+	background-color: #d6d3d4;
+	z-index:5;
+}
+.pre_apply .main .steps .step.has-passed .d{
+	background-color: #a7a9ac;
+}
+.pre_apply .main .steps .step.active .d{
+	background-color: #ba8748;
+}
+.pre_apply .main .steps .step.active .ball{
+	display:block;
+	position:absolute;
+	bottom:-7px;
+	left:50%;
+	margin-left:-7px;
+	width:0;
+	height:0;
+	border:7px solid #ba8748;
+	border-radius: 7px;
+	z-index:10;
+}
+
+/* 控制面板搜索栏 */
+.pre_apply .main .controlpanel_search{
+	height:90px;
+	line-height:1.4;
+	background-color: #f7f9fb;
+	position:fixed;
+	top:70px;
+	width:100%;
+	box-shadow: 0 1px 2px #ccc;
+	z-index:100;
+}
+.pre_apply .main .controlpanel_search .caption{
+	margin-top:10px;
+	margin-bottom:0;
+	font-size:36px;
+	/*line-height:90px;*/
+	float:left;
+	font-size:20px;
+	padding-left:0;
+	padding-right:0;
+}
+@media(min-width:768px){
+	.pre_apply .main .controlpanel_search .caption{
+		font-size:32px;
+		padding-left:10px;
+	}
+}
+.pre_apply .main .controlpanel_search .form-group{margin:0; }
+.pre_apply .main .controlpanel_search .form-group .input-group{margin-top:5px;margin-right:10px; }
+.pre_apply .main .controlpanel_search .form-group .input-group .form-control{
+	border:1px solid #f0f0f0;
+	outline:none;
+	box-shadow: none;
+}
+.pre_apply .main .controlpanel_search .form-group .input-group .form-control:focus{
+	outline:none;
+	box-shadow: none;
+}
+.pre_apply .main .controlpanel_search .form-group .input-group .input-group-btn button{
+	background-color:#fdb930;
+	border:1px solid #fdb930;
+	color:#fff;
+	height:40px;
+}
+.pre_apply .main .controlpanel_search .form-group .input-group .input-group-btn button:hover{
+	background-color:#fdb930;
+	color:#fff;
+}
+.pre_apply .main .controlpanel_search .form-group .input-group .input-group-btn button:focus{
+	box-shadow: none;
+	outline: none;
+}
+
+
+
+.pre_apply .main .row_content>h1{
+	margin-top:50px;
+	margin-bottom:15px;
+	color:#425968;
+}
+.pre_apply .main .row_content .form-group .control-label{
+	padding-left: 12px!important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.pre_apply .main .row_content .inputlist .form-group .control-label{
+	font-size:14px;
+}
+
+
+.pre_apply .main .row_nav{
+	padding-left:60px;
+}
+.pre_apply .main .row_content{
+	padding-left:75px;
+	padding-right:15px;
+	padding-top:20px;
+}
+@media (min-width:768px){
+	.pre_apply .main .row_content{
+		padding-left:90px;
+		padding-right:30px;
+	}
+}
+@media (min-width:992px){
+	.pre_apply .main .row_content{
+		padding-left:80px;
+		padding-right:20px;
+	}
+}
+@media (min-width:1200px){
+	.pre_apply .main .row_content{
+		padding-left:70px;
+		padding-right:10px;
+	}
+}
+
+.radio-lang{
+	text-align:center;
+}
+
+.save_setlang:focus,.cancel_setlang:focus{
+	box-shadow: none;
+	outline: none;
+}

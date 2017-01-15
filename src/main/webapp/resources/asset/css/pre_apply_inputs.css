@@ -1,0 +1,22 @@
+
+/* 关注微信对话框 */
+#pre_wechat .modal-dialog{
+	max-width:450px;
+}
+#pre_wechat .modal-dialog .modal-content{
+	height:560px;
+}
+#pre_wechat .modal-dialog .img_close{
+	position:absolute;
+	right:-20px;
+	top:-20px;
+	cursor: pointer;
+} 
+#pre_wechat .modal-dialog .modal-body{
+	padding-top:50px;
+	padding-bottom:50px;
+}
+#pre_wechat .modal-dialog .modal-body h2{
+	margin-top:0;
+	margin-bottom:30px;
+}

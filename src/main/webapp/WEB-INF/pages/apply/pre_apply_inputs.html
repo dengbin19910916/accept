@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>预审批录入</title>
+    <link rel="shortcut icon" href="/resources/asset/img/favicon5.ico" th:href="@{/resources/asset/img/favicon5.ico}"/>
+    <link rel="bookmark" href="/resources/asset/img/favicon5.ico" th:href="@{/resources/asset/img/favicon5.ico}"
+          type="image/x-icon"/>
+    <link rel="stylesheet" href="/resources/asset/css/common/bootstrap.min.css"
+          th:href="@{/resources/asset/css/common/bootstrap.min.css}">
+
+    <link rel="stylesheet" href="/resources/asset/common/styles/kendo.common.min.css"
+          th:href="@{/resources/asset/common/styles/kendo.common-material.min.css}"/>
+    <link rel="stylesheet" href="/resources/asset/common/styles/kendo.default.min.css"
+          th:href="@{/resources/asset/common/styles/kendo.material.min.css}"/>
+    <link rel="stylesheet" href="/resources/asset/common/styles/kendo.material.mobile.min.css"
+          th:href="@{/resources/asset/common/styles/kendo.material.mobile.min.css}"/>
+
+    <script src="/resources/asset/common/js/jquery.min.js"
+            th:src="@{/resources/asset/common/js/jquery.min.js}"></script>
+    <script src="/resources/asset/common/js/kendo.all.min.js"
+            th:src="@{/resources/asset/common/js/kendo.all.min.js}"></script>
+    <script th:src="@{/resources/asset/common/js/cultures/kendo.culture.zh-CN.min.js}"></script>
+    <script th:src="@{/resources/asset/common/js/messages/kendo.messages.zh-CN.min.js}"></script>
+
+    <script th:src="@{/resources/asset/js/pre.apply.input.js}"></script>
+</head>
+<body>
+<div id="example">
+    <div class="demo-section k-content">
+        <div id="tickets">
+            <form id="ticketsForm">
+                <ul id="fieldlist">
+                    <li>
+                        <label for="customerName" class="required">姓&emsp;&emsp;名</label>
+                        <input type="text" id="customerName" name="customerName" class="k-textbox" placeholder="请输入 ..."
+                               required validationMessage="输入姓名" style="width: 220px;"/>
+                    </li>
+                    <li>
+                        <label for="idCardType" class="required">证件类型</label>
+                        <input id="idCardType" name="idCardType" placeholder="请输入 ..."
+                               required validationMessage="选择证件类型" style="width: 220px;"/>
+                        <span class="k-invalid-msg" data-for="idCardType"></span>
+                    </li>
+                    <li>
+                        <label for="idCardNumber" class="required">证件号码</label>
+                        <input id="idCardNumber" name="idCardNumber" class="k-textbox" pattern="\d{18}"
+                               placeholder="请输入 ..." required validationMessage="输入18位数字"
+                               data-message="证件号码错误"
+                               style="width: 220px;"/>
+                    </li>
+                    <li>
+                        <label for="fullname" class="required">Your Name</label>
+                        <input type="text" id="fullname" name="fullname" class="k-textbox" placeholder="Full name"
+                               required validationMessage="Enter {0}" style="width: 220px;"/>
+                    </li>
+                    <li>
+                        <label for="search" class="required">Movie</label>
+                        <input type="search" id="search" name="search" required validationMessage="Select movie"
+                               style="width: 220px;"/>
+                        <span class="k-invalid-msg" data-for="search"></span>
+                    </li>
+                    <li>
+                        <label for="time">Start time</label>
+                        <select name="time" id="time" required data-required-msg="Select start time"
+                                style="width: 220px;">
+                            <option>14:00</option>
+                            <option>15:30</option>
+                            <option>17:00</option>
+                            <option>20:15</option>
+                        </select>
+                        <span class="k-invalid-msg" data-for="time"></span>
+                    </li>
+                    <li>
+                        <label for="amount">Amount</label>
+                        <input id="amount" name="Amount" type="text" min="1" max="10" value="1" required
+                               data-max-msg="Enter value between 1 and 10" style="width: 220px;"/>
+                        <span class="k-invalid-msg" data-for="Amount"></span>
+                    </li>
+                    <li>
+                        <label for="email" class="required">Email</label>
+                        <input type="email" id="email" name="Email" class="k-textbox"
+                               placeholder="e.g. myname@example.net" required data-email-msg="邮箱格式不正确"
+                               style="width: 220px;"/>
+                    </li>s
+                    <li>
+                        <label for="tel" class="required">Phone</label>
+                        <input type="tel" id="tel" name="tel" class="k-textbox" pattern="\d{11}"
+                               placeholder="Enter a ten digit number" required
+                               validationMessage="输入11位数字" style="width: 220px;"/>
+                    </li>
+                    <li class="accept">
+                        <label>Terms of Service</label>
+                        <input type="checkbox" name="Accept" required validationMessage="Acceptance is required"/>
+                        <p>I accept the terms of service.</p>
+                    </li>
+                    <li class="confirm">
+                        <button class="k-button k-primary" type="submit">Submit</button>
+                    </li>
+                    <li class="status">
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+
+    <style>
+        #fieldlist {
+            margin: 0;
+            padding: 0;
+        }
+
+        #fieldlist li {
+            list-style: none;
+            padding-bottom: .7em;
+            text-align: left;
+        }
+
+        #fieldlist label {
+            display: block;
+            padding-bottom: .3em;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+            color: #444;
+        }
+
+        #fieldlist li.status {
+            text-align: center;
+        }
+
+        #fieldlist li .k-widget:not(.k-tooltip),
+        #fieldlist li .k-textbox {
+            margin: 0 5px 5px 0;
+        }
+
+        .confirm {
+            padding-top: 1em;
+        }
+
+        .valid {
+            color: green;
+        }
+
+        .invalid {
+            color: red;
+        }
+
+        #fieldlist li input[type="checkbox"] {
+            margin: 0 5px 0 0;
+        }
+
+        span.k-widget.k-tooltip-validation {
+            display: none;
+            width: 160px;
+            text-align: left;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            background: none;
+            box-shadow: none;
+            color: red;
+        }
+
+        .k-tooltip-validation .k-warning {
+            display: none;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(function () {
+
+        });
+    </script>
+</div>
+</body>
