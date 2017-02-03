@@ -237,7 +237,7 @@ declare module _ {
         * intermediate results within the chain.
         * @param value The value to provide to interceptor
         * @param interceptor The function to invoke.
-        * @return value
+        * @return code
         **/
         tap<T>(
             value: T,
@@ -6195,7 +6195,7 @@ declare module _ {
         /**
         * This method returns the first argument provided to it.
         * @param value Any value.
-        * @return value.
+        * @return code.
         **/
         identity<T>(value: T): T;
     }

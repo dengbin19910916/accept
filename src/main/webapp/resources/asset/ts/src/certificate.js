@@ -5,33 +5,31 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 /// <reference path="../typings/jquery/jquery.d.ts" />
-/// <reference path="../node_modules/moment/moment.d.ts" />
 var moment = require("moment");
 /**
  * 证件类型。
  * @author deng.bin.outs
  */
-var accept;
-(function (accept) {
-    var certificate;
-    (function (certificate) {
+var preaccept;
+(function (preaccept) {
+    var model;
+    (function (model) {
         var GenderException;
         (function (GenderException) {
-            var Exception = (function (_super) {
-                __extends(Exception, _super);
-                function Exception(message) {
+            var GenderParseError = (function (_super) {
+                __extends(GenderParseError, _super);
+                function GenderParseError(message) {
                     _super.call(this, message);
+                    this.name = "Gender Exception";
                     this.message = message;
-                    this.name = "Exception";
-                    this.message = message;
-                    this.stack = (new Error()).stack;
+                    this.stack = new Error().stack;
                 }
-                Exception.prototype.toString = function () {
+                GenderParseError.prototype.toString = function () {
                     return this.name + ": " + this.message;
                 };
-                return Exception;
+                return GenderParseError;
             }(Error));
-            GenderException.Exception = Exception;
+            GenderException.GenderParseError = GenderParseError;
         })(GenderException || (GenderException = {}));
         /**
          * 性别类型。
@@ -57,9 +55,23 @@ var accept;
              */
             function Gender(genderType) {
                 this.genderType = genderType;
-                this.name = this.getName();
-                this.value = this.getValue();
+                this._name = this.getName();
+                this._code = this.getValue();
             }
+            Object.defineProperty(Gender.prototype, "code", {
+                get: function () {
+                    return this._code;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Gender.prototype, "name", {
+                get: function () {
+                    return this._name;
+                },
+                enumerable: true,
+                configurable: true
+            });
             /**
              * 返回性别名称。
              * @returns {string} 性别名称。
@@ -98,7 +110,7 @@ var accept;
                     case "m":
                         return new Gender(GenderType.Male);
                     default:
-                        throw new GenderError("无效的性别值！性别名称只能为M或F。");
+                        throw new GenderException.GenderParseError("无效的性别值！性别名称只能为M或F。");
                 }
             };
             /**
@@ -113,7 +125,7 @@ var accept;
                     case "女":
                         return new Gender(GenderType.Male);
                     default:
-                        throw new GenderError("无效的性别名称！性别名称只能为男或女。");
+                        throw new GenderException.GenderParseError("无效的性别名称！性别名称只能为男或女。");
                 }
             };
             /**
@@ -121,18 +133,11 @@ var accept;
              * @returns {string} 性别名称。
              */
             Gender.prototype.toString = function () {
-                return this.name;
+                return this._name;
             };
             return Gender;
         }());
-        certificate.Gender = Gender;
-        var GenderError = (function (_super) {
-            __extends(GenderError, _super);
-            function GenderError() {
-                _super.apply(this, arguments);
-            }
-            return GenderError;
-        }(GenderException.Exception));
+        model.Gender = Gender;
         /**
          * 证件对象的抽象父类型。
          */
@@ -243,7 +248,7 @@ var accept;
                     timeout: 5000,
                     dataType: "json",
                     success: function (data) {
-                        result = data.valid;
+                        result = data.valid == "true";
                     }
                 });
                 return result;
@@ -265,7 +270,7 @@ var accept;
             };
             return Card;
         }());
-        certificate.Card = Card;
+        model.Card = Card;
         /**
          * 身份证对象。
          */
@@ -390,6 +395,6 @@ var accept;
             };
             return IdCard;
         }(Card));
-        certificate.IdCard = IdCard;
-    })(certificate = accept.certificate || (accept.certificate = {}));
-})(accept || (accept = {}));
+        model.IdCard = IdCard;
+    })(model = preaccept.model || (preaccept.model = {}));
+})(preaccept || (preaccept = {}));

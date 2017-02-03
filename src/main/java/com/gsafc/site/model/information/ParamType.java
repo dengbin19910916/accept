@@ -8,7 +8,7 @@ import java.util.Optional;
  */
 public enum ParamType {
 
-    ID_CARD_TYPE("idCardType"),
+    CARD_TYPE("cardType"),
     GENDER_TYPE("genderType");
 
     ParamType(String name) {

@@ -1,7 +1,6 @@
 package com.gsafc.site.web;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.gsafc.site.model.User;
 import com.gsafc.site.model.country.Province;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,12 +22,7 @@ public class SampleController {
 
     @GetMapping("/")
     public String index(Model model) {
-        User user = new User();
-        user.setName("邓斌");
-        model.addAttribute(user);
-        model.addAttribute("nameTitle", "姓名");
-
-        return "sample";
+        return "redirect:/apply/";
     }
 
     @PostMapping("/submit")

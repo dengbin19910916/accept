@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>Title</title>
     <link rel="stylesheet" href="/resources/asset/common/styles/kendo.common.min.css"
           th:href="@{/resources/asset/common/styles/kendo.common-material.min.css}"/>
@@ -12,86 +12,202 @@
 
     <script src="/resources/asset/js/jquery.min.js" th:src="@{/resources/asset/common/js/jquery.min.js}"></script>
     <script src="/resources/asset/js/kendo.all.min.js" th:src="@{/resources/asset/common/js/kendo.all.min.js}"></script>
+    <script th:src="@{/resources/asset/common/js/cultures/kendo.culture.zh-CN.min.js}"></script>
+    <script th:src="@{/resources/asset/common/js/messages/kendo.messages.zh-CN.min.js}"></script>
     <script th:src="@{/resources/asset/ts/node_modules/moment/moment.js}"></script>
-    <script th:src="@{/resources/asset/ts/src/certificate.js}"></script>
+    <script th:src="@{/resources/asset/ts/src/model.bundle.js}"></script>
+    <script th:src="@{/resources/asset/ts/src/sample.bundle.js}"></script>
+    <script th:src="@{/resources/asset/ts/src/apply.js}"></script>
+
+    <script type="text/javascript">
+        kendo.culture("zh-CN");
+    </script>
 </head>
 <body>
 
-<form id="employeeForm" data-role="validator" novalidate="novalidate">
+<!-- data-role="validator" novalidate="novalidate"-->
+<form id="employeeForm" name="employeeForm">
     <ul id="fieldlist">
         <li>
             <label for="customerName">姓名:</label>
             <input type="text" class="k-textbox" name="customerName" id="customerName"
-                   style="width: 350px;" required="required" />
+                   th:value="${borrower.customerName}" validationmessage="请输入姓名"
+                   style="width: 350px; height: 40px; margin: 0px;" required="required" />
+            <input type="hidden" name="relationType" id="relationType" th:value="${borrower.relationType}" />
         </li>
         <li>
-            <label for="cardType">证件类型:</label>
-            <input name="cardType" id="cardType"
-                   style="width: 350px;" required="required" />
+            <label>证件类型:</label>
+            <input name="cardType" id="cardType" th:value="${borrower.cardType}"
+                   style="width: 350px; height: 40px; margin: 0px;" required="required" validationmessage="请选择证件类型" />
         </li>
         <li>
             <label for="cardNumber">证件号码:</label>
             <input type="text" class="k-textbox" name="cardNumber" id="cardNumber"
-                   style="width: 350px;" required="required" />
+                   th:value="${borrower.cardNumber}" validationmessage="请输入证件号码"
+                   style="width: 350px; height: 40px; margin: 0px;" required="required" />
         </li>
         <li>
-            <label for="phoneNumber">Phone Number:</label>
-            <input type="text" data-role='maskedtextbox' data-mask="(999) 000-0000" id="phoneNumber" name="phoneNumber" data-validmask-msg="Phone number is incomplete" required="required" />
-            <span data-for='PhoneNumber' class='k-invalid-msg'></span>
+            <label>证件到期日:</label>
+            <input id="expirationDate" name="expirationDate"
+                   th:value="${borrower.expirationDate}" validationmessage="请输入证件到期日"
+                   style="width: 350px; height: 40px; margin: 0px;" required="required" />
+        </li>
+        <li>
+            <label for="mobileNumber">手机号码:</label>
+            <input type="text" id="mobileNumber" name="mobileNumber"
+                   th:value="${borrower.mobileNumber}" validationmessage="请输入手机号码"
+                   style="width: 350px; height: 40px; margin: 0px;" required="required" />
+            <!--<span data-for="mobileNumber" class="k-invalid-msg"></span>-->
         </li>
         <li class="actions">
-            <button type="button" data-role="button" data-sprite-css-class="k-icon k-i-tick" data-click='save'>Save</button>
+            <!--<button type="button" data-role="button" data-sprite-css-class="k-icon k-i-tick" data-click="save">Save</button>-->
+            <button class="k-button k-primary k-i-tick" onclick="save()">Save</button>
         </li>
     </ul>
 </form>
 
 <script type="text/javascript">
-    $(function () {
-        var id = new accept.certificate.IdCard("430821199111230033");
-        alert(id.isValid());
-        var gender = accept.certificate.Gender.nameOf("人妖");
-        alert(gender);
+    /**
+     * 判断字符串中是否包含待搜索的字符串。
+     *
+     * @param searchValue 待搜索的字符串。
+     * @returns {boolean} 包含时返回true，不包含时返回false。
+     */
+    String.prototype.contains = function (searchValue) {
+        if (this !== void 0) {
+            return this.indexOf(searchValue) >= 0;
+        }
+        return false;
+    }
 
-        var data = [
-            { text: "居民身份证", value: "1" },
-            { text: "军官证", value: "2" },
-            { text: "港澳同胞证", value: "3" }
-        ];
+    /**
+     * 替换字符串中所有的字符串。
+     *
+     * @param searchValue 待搜索的字符串。
+     * @param replaceValue 替换的字符串。
+     * @returns {String} 替换后的字符串。
+     */
+    String.prototype.replaceAll = function (searchValue, replaceValue) {
+        if (this !== void 0) {
+            return this.replace(new RegExp(searchValue, "gm"), replaceValue);
+        }
+        return this;
+    }
+
+    $(function () {
+        let result = null;
+        $.ajax({
+            type: "get",
+            url: "/apply/findPersons",
+            data: {appId: "00001"},
+            async: false,
+            success: function (data) {
+                result = data;
+            }
+        });
 
         $("#cardType").kendoDropDownList({
             optionLabel: "--请选择--",
-            dataTextField: "text",
-            dataValueField: "value",
-            dataSource: data,
+            dataTextField: "description",
+            dataValueField: "code",
+            dataSource: {
+                transport: {
+                    read: {
+                        dataType: "json",
+                        url: "/param/cardType?contentType=json",
+                    }
+                }
+            },
+            change: function () {
+                if (this.value() != "") {
+                    alert("证件");
+                }
+                if (this.value() == "01") {
+                    alert("身份证")
+                }
+            },
             index: 0
         });
 
-        var container = $("#employeeForm");
-        kendo.init(container);
-        container.kendoValidator({
-            rules: {
-                validmask: function (input) {
-                    console.log(input);
-                    if (input.is("[data-validmask-msg]") && input.val() != "") {
-                        var maskedtextbox = input.data("kendoMaskedTextBox");
-                        return maskedtextbox.value().indexOf(maskedtextbox.options.promptChar) === -1;
-                    }
+        $("#expirationDate").kendoDatePicker({
+            start: "decade",
+            format: "yyyy-MM-dd"
+        });
 
+        $("#mobileNumber").kendoMaskedTextBox({
+            mask: "999 9999 9999"
+        });
+
+        //kendo.init(container);
+        $("#employeeForm").kendoValidator({
+            validateInput: function (e) {
+                alert("valid  " + e.valid);
+            },
+            messages: {
+                /*required: function (input) {
+                    return getRequiredMessage(input);
+                },*/
+                card: "身份证号码不正确",
+                email: function (input) {
+                    return getMessage(input);
+                },
+                mobile: "手机号码不正确"
+            },
+            rules: {
+                card: function (input) {
+                    if (input.is("[name=cardNumber]")) {
+                        if ($("input[name=cardType]").val() === "01" && input.val().length === 18) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    return true;
+                },
+                mobile: function (input) {
+                    if (input.is("[name=mobileNumber]")) {
+                        var mobileNumber = $("input[name=mobileNumber]").data("kendoMaskedTextBox");
+                        if (mobileNumber.value().indexOf("1") === 0 &&
+                            mobileNumber.value().replaceAll("_", "").replaceAll(" ", "").length == 11) {
+                            return true;
+                        }
+                        return false;
+                    }
                     return true;
                 }
             }
         });
+
+        function getMessage(input) {
+            return input.data("message");
+        }
+
+        function getRequiredMessage(input) {
+            if (input.is("[name=customerName]")) {
+                return "姓名不能为空";
+            }
+            else {
+                var text = input.prev().text();
+                return text.substring(0, text.lastIndexOf(":")) + "不能为空";
+            }
+        }
     });
 
     function save(e) {
-        var validator = $("#employeeForm").data("kendoValidator");
-        if (validator.validate()) {
-            alert("Employee Saved");
+        var validatable = $("#employeeForm").kendoValidator().data("kendoValidator");
+        if (validatable.validate() === true) {
+            //alert("Employee Saved");
+        } else {
+            //alert("Don't Save : " + validatable.errors());
         }
     }
 </script>
 
 <style>
+    input {
+        width: 350px;
+        height: 30px;
+    }
+
     #fieldlist {
         margin: 0 0 -2em;
         padding: 0;
@@ -119,6 +235,7 @@
         /*margin-top: 5px;*/
         /*line-height: 1.7em;*/
         width: 350px;
+        height: 20px;
         /*box-sizing: border-box;*/
         /*text-align: left;*/
     }
