@@ -78,7 +78,7 @@
             return this.indexOf(searchValue) >= 0;
         }
         return false;
-    }
+    };
 
     /**
      * 替换字符串中所有的字符串。
@@ -92,7 +92,7 @@
             return this.replace(new RegExp(searchValue, "gm"), replaceValue);
         }
         return this;
-    }
+    };
 
     $(function () {
         let result = null;
@@ -156,21 +156,17 @@
             rules: {
                 card: function (input) {
                     if (input.is("[name=cardNumber]")) {
-                        if ($("input[name=cardType]").val() === "01" && input.val().length === 18) {
-                            return true;
-                        }
-                        return false;
+                        return $("input[name=cardType]").val() === "01" && input.val().length === 18;
+
                     }
                     return true;
                 },
                 mobile: function (input) {
                     if (input.is("[name=mobileNumber]")) {
-                        var mobileNumber = $("input[name=mobileNumber]").data("kendoMaskedTextBox");
-                        if (mobileNumber.value().indexOf("1") === 0 &&
-                            mobileNumber.value().replaceAll("_", "").replaceAll(" ", "").length == 11) {
-                            return true;
-                        }
-                        return false;
+                        let mobileNumber = $("input[name=mobileNumber]").data("kendoMaskedTextBox");
+                        return mobileNumber.value().indexOf("1") === 0 &&
+                            mobileNumber.value().replaceAll("_", "").replaceAll(" ", "").length == 11;
+
                     }
                     return true;
                 }
@@ -186,14 +182,14 @@
                 return "姓名不能为空";
             }
             else {
-                var text = input.prev().text();
+                let text = input.prev().text();
                 return text.substring(0, text.lastIndexOf(":")) + "不能为空";
             }
         }
     });
 
     function save(e) {
-        var validatable = $("#employeeForm").kendoValidator().data("kendoValidator");
+        let validatable = $("#employeeForm").kendoValidator().data("kendoValidator");
         if (validatable.validate() === true) {
             //alert("Employee Saved");
         } else {
