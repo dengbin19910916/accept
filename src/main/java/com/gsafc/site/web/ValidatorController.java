@@ -1,7 +1,8 @@
 package com.gsafc.site.web;
 
-import org.apache.ibatis.annotations.Param;
+import com.gsafc.site.model.information.CardType;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -18,17 +19,16 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @RequestMapping("/valid")
 public class ValidatorController {
 
-    @RequestMapping(value = "/identity", method = {GET, POST})
+    @RequestMapping(value = "/{type}/{number}", method = {GET, POST})
     @ResponseBody
-    public HashMap<String, Object> validateIdentity(@Param("number") String number, HttpServletResponse response) {
+    public HashMap<String, Object> validateIdentity(@PathVariable("type") String type, @PathVariable("number") String number,
+                                                    HttpServletResponse response) {
         response.setHeader("Access-Control-Allow-Origin", "*");
         HashMap<String, Object> result = new HashMap<>();
-        System.err.println(number);
-        if (number != null) {
-            result.put("valid", "true");
-        } else {
-            result.put("valid", "false");
-        }
+
+        boolean valid = CardType.valueOf(type.toUpperCase()).validate(number);
+        result.put("valid", valid);
+
         return result;
     }
 }

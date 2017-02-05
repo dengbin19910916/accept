@@ -15,10 +15,10 @@ import java.util.Map;
 @Component
 public enum CardType implements Validator<String>, Parser<String, Map<String, Object>> {
 
-    ID_CARD {
+    IDENTITY {
         @Override
         public boolean validate(String data) {
-            return data.length() == 18 && this.countryService.isCountyCode(data);
+            return data.length() == 18;
         }
 
         @Override
@@ -48,7 +48,7 @@ public enum CardType implements Validator<String>, Parser<String, Map<String, Ob
             return null;
         }
     },
-    SERVICEMAN_CARD {
+    SERVICEMAN {
         @Override
         public boolean validate(String data) {
             return false;
@@ -59,7 +59,7 @@ public enum CardType implements Validator<String>, Parser<String, Map<String, Ob
             return null;
         }
     },
-    TEACHER_CERTIFICATE {
+    TEACHER {
         @Override
         public boolean validate(String data) {
             return false;
